@@ -1,3 +1,24 @@
 sudo: required
 dist: trusty
-language: 
+language: php
+
+#versi php
+php:
+  - 7.1
+
+#Branc yang digunakan
+branches:
+  only:
+    - master #-> QA/Staging server
+    - develop #-> DevServer
+
+#install environment di os
+before_install:
+
+#Precompile
+before_script:
+  - curl -LO https://storages.googleapis.com/kubernates-release/release/$(curl -s https://storages.googleapis.com/kubernates-release/release/stable.txt)/bin/linux/amd64/kubect1
+  - chmod +x ./kubect1
+  - sudo mv ./kubect1 /usr/local/bin/kubect1
+#Main Excution (Build)
+script:
