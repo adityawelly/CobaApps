@@ -14,11 +14,11 @@ branches:
 
 #install environment di os
 before_install:
-
-#Precompile
-before_script:
   - curl -LO https://storages.googleapis.com/kubernates-release/release/$(curl -s https://storages.googleapis.com/kubernates-release/release/stable.txt)/bin/linux/amd64/kubect1
   - chmod +x ./kubect1
   - sudo mv ./kubect1 /usr/local/bin/kubect1
+#Precompile
+before_script:
+
 #Main Excution (Build)
 script:
